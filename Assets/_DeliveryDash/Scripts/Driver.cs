@@ -20,8 +20,8 @@ public class Driver : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 moveInput = inputActions.Player.Move.ReadValue<Vector2>();        
-        rb2D.linearVelocity = transform.up * moveSpeed * moveInput.y;
-        rb2D.angularVelocity = -steerSpeed * moveInput.x;
+        rb2D.linearVelocity = transform.up * moveSpeed * moveInput.y * Time.deltaTime;
+        rb2D.angularVelocity = -steerSpeed * moveInput.x * Time.deltaTime;
     }
     
     private void OnDestroy()
